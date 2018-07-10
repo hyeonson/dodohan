@@ -1,0 +1,85 @@
+doctype html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title 도도한 불닭발
+    // Bootstrap core CSS
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet')
+    // Custom fonts for this template
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='/stylesheets/font-awesome.css', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic', rel='stylesheet', type='text/css')
+    // Plugin CSS
+    link(href='/stylesheets/magnific-popup.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='/stylesheets/creative.css', rel='stylesheet')
+  body#page-top
+    // Navigation
+    nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+      .container
+        a.navbar-brand.js-scroll-trigger(href='http://localhost:3000')
+          img(src='/images/logo.jpg', alt='Logo', style='width:100px;')         
+        button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon          
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto(style='font-weight:bold')
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='http://localhost:3000') 도도한 불닭발
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='http://localhost:3000/menu') 도도한 메뉴                  
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='http://localhost:3000/location') 매장 안내              
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='http://localhost:3000/chain') 체인점 문의    
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='http://localhost:3000/question') 문의 사항
+    header.masthead.text-center.text-white.d-flex(style="background-image: url('/images/header8.jpg')")
+      .container.my-auto
+        .row
+          .col-lg-10.mx-auto
+            h1.text-uppercase
+              strong 문의사항
+            hr.light.my-4       
+          .col-lg-8.mx-auto
+            p.text-faded.mb-5 당신의 의견을 들려주세요!  
+            a.btn.btn-primary.btn-xl.js-scroll-trigger(href='#questreg') 문의 등록
+    section#questreg.bg-primary
+      .container
+        .row
+          .col-sm-12.mx-auto.text-center
+            h2.section-heading.text-white 문의 등록           
+            hr.light.my-4            
+            form#boardPostForm.form.mx-auto(method='POST', action="{{ url_for('board_3_post') }}" style="width:600px")
+                .form-group
+                    label.text-white(for='title') 문의 제목:
+                    input#title.form-control(type='text', placeholder='제목을 입력해 주세요', name='title')
+                .form-group
+                    label.text-white(for='content') 문의 내용:
+                    textarea#content.form-control(placeholder='내용을 입력해 주세요.', name='content', rows='10')
+                .form-group.text-center
+                button.btn.btn-light.my-3.mx-2(type='submit') 문의 등록
+ 
+            a.btn.btn-light.btn-xl.js-scroll-trigger(href='#questlist') 문의 목록
+    section#questlist
+      .container
+        .row
+          .col-lg-6.col-md-6.text-center
+            .service-box.mt-5.mx-auto
+              i.fa.fa-4x.fa-commenting-o.text-primary.mb-3.sr-icons           
+              h3.mb-3 사장님 한 말씀                  
+              p.text-muted.mb-0 하이           
+          .col-lg-6.col-md-6.text-center
+            .service-box.mt-5.mx-auto
+              p.text-muted.mb-0 사장님 사진 들어갈 곳
+    // Bootstrap core JavaScript
+    script(src='/javascripts/jquery.js')
+    script(src='/javascripts/bootstrap.bundle.js')
+    // Plugin JavaScript
+    script(src='/javascripts/jquery.easing.js')
+    script(src='/javascripts/scrollreveal.js')
+    script(src='/javascripts/jquery.magnific-popup.js')
+    // Custom scripts for this template
+    script(src='/javascripts/creative.js')
