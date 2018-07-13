@@ -7,6 +7,26 @@ var path = require('path');
 //Express 객체 생성
 var app = express();
 
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/test');
+
+var db = mongoose.connection;
+
+db.on('error', console.error);
+db.once('open', function(){
+    // CONNECTED TO MONGODB SERVER
+    console.log("Connected to mongod server");
+});
+
+var questSchema = mongoose.Schema({
+  title: String,
+  content: String,
+  date:{type:Date, default: Date.now}
+});
+
+var Quest = mongoose.model('Quest',questSchema);
+
 //기본포트를 app 객체에 속성으로 설정
 app.set('port', process.env.PORT || 3000);
 
@@ -57,7 +77,34 @@ app.get('/chain', function (req, res) {
 });
 
 app.get('/question', function (req, res) {
-  res.render('question.jade');
+  Quest.find({}).sort({date:-1}).exec(function(err, rawContents){
+    // db에서 날짜 순으로 데이터들을 가져옴
+     if(err) throw err;
+     res.render('question.jade', {title: "Board", contents: rawContents}); 
+     // board.ejs의 title변수엔 “Board”를, contents변수엔 db 검색 결과 json 데이터를 저장해줌.
+ });
+});
+app.post('/question', function (req, res) {
+  var title = req.body.title;
+  var content = req.body.content;
+  var quest = new Quest({title:title, content:content})
+  quest.save(function(err){
+    if (err) console.log(err);
+    res.redirect('http://localhost:3000/question');
+  });
+});
+
+app.get('/question/:id', function(req, res){
+  // 글 보는 부분. 글 내용을 출력하고 조회수를 늘려줘야함
+  var contentId = req.param('id');
+  Quest.findOne({_id:contentId}, function(err, rawContent){
+    if(err) throw err;
+       //rawContent.count += 1; // 조회수를 늘려줍니다.
+       //rawContent.save(function(err){ // 변화된 조횟수 저장
+           //if(err) throw err;
+    res.render('questionView.jade',{title: "BoardDetail", contents:rawContent}); // db에서 가져온 내용을 뷰로 렌더링
+       //});
+   });
 });
 
 

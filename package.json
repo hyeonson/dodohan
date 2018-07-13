@@ -1,0 +1,28 @@
+{
+  "name": "dodohan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "http": "^0.0.0",
+    "jade": "^1.11.0",
+    "mongodb-autoincrement": "^1.0.1",
+    "mongoose": "^5.2.2",
+    "mongoose-auto-increment": "^5.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyeonsoobak/dodohan.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyeonsoobak/dodohan/issues"
+  },
+  "homepage": "https://github.com/hyeonsoobak/dodohan#readme"
+}

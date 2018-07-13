@@ -1,0 +1,64 @@
+doctype html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title 도도한 불닭발
+    // Bootstrap core CSS
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet')
+    // Custom fonts for this template
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='/stylesheets/font-awesome.css', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic', rel='stylesheet', type='text/css')
+    // Plugin CSS
+    link(href='/stylesheets/magnific-popup.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='/stylesheets/creative.css', rel='stylesheet')
+  body#page-top
+    // Navigation
+    nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+      .container
+        a.navbar-brand.js-scroll-trigger(href='http://localhost:3000')
+          img(src='/images/logo.jpg', alt='Logo', style='width:100px;')         
+        button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon          
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto(style='font-weight:bold')
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='http://localhost:3000') 도도한 불닭발
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='http://localhost:3000/menu') 도도한 메뉴                  
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='http://localhost:3000/location') 매장 안내              
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='http://localhost:3000/chain') 체인점 문의    
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='http://localhost:3000/question') 문의 사항
+    
+    section#questreg.bg-primary
+      .container
+        .row
+          .col-sm-12.mx-auto.text-center
+            h2.section-heading.text-white 문의 보기           
+            hr.light.my-4            
+            form#boardPostForm.form.mx-auto(method='POST', action="http://localhost:3000/question" style="width:600px")
+                .form-group
+                    label.text-white(for='title') 문의 제목:
+                    input#title.form-control(type='text', value= contents.title, name='title' readonly)
+                .form-group
+                    label.text-white(for='content') 문의 내용:
+                    textarea#content.form-control(name='content', rows='10' readonly) #{contents.content}
+                .form-group.text-center
+            a.btn.btn-light.btn-xl(href='http://localhost:3000/question') 뒤로 가기
+
+    // Bootstrap core JavaScript
+    script(src='/javascripts/jquery.js')
+    script(src='/javascripts/bootstrap.bundle.js')
+    // Plugin JavaScript
+    script(src='/javascripts/jquery.easing.js')
+    script(src='/javascripts/scrollreveal.js')
+    script(src='/javascripts/jquery.magnific-popup.js')
+    // Custom scripts for this template
+    script(src='/javascripts/creative.js')
