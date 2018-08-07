@@ -1,6 +1,7 @@
 doctype html(lang='en')
 head
     meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description', content='')
     meta(name='author', content='')
@@ -16,6 +17,7 @@ head
     link(href='/stylesheets/magnific-popup.css', rel='stylesheet')
     // Custom styles for this template
     link(href='/stylesheets/creative.css', rel='stylesheet')
+    script(type='text/javascript' src='https://openapi.map.naver.com/openapi/v3/maps.js?clientId=NJrai2yxiBftGX1gOK0g')
 
   body#page-top
     
@@ -54,8 +56,7 @@ head
             h2.section-heading.text-white 매장별 위치
             hr.light.mb-4
             //네이버 지도
-            script(type='text/javascript' src='https://openapi.map.naver.com/openapi/v3/maps.js?clientId=NJrai2yxiBftGX1gOK0g')
-            #map.mx-auto(style='width:750px, height:450px')
+            #map.mx-auto(style='width:100%, height:450px')
             script.
               var mapOptions = {
                 center: new naver.maps.LatLng(37.445444, 126.666399),
