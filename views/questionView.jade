@@ -20,22 +20,22 @@ head
     // Navigation
     nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
       .container
-        a.navbar-brand.js-scroll-trigger(href='http://localhost:3000')
+        a.navbar-brand.js-scroll-trigger(href='http://54.180.32.249:3000')
           img(src='/images/logo.jpg', alt='Logo', style='width:100px;')         
         button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
           span.navbar-toggler-icon          
         #navbarResponsive.collapse.navbar-collapse
           ul.navbar-nav.ml-auto(style='font-weight:bold')
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://localhost:3000') 도도한 불닭발
+              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:3000') 도도한 불닭발
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://localhost:3000/menu') 도도한 메뉴                  
+              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:3000/menu') 도도한 메뉴                  
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://localhost:3000/location') 매장 안내              
+              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:3000/location') 매장 안내              
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://localhost:3000/chain') 체인점 문의    
+              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:3000/chain') 체인점 문의    
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://localhost:3000/question') 문의 사항
+              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:3000/question') 문의 사항
     
     section#questreg.bg-primary
       .container
@@ -43,7 +43,7 @@ head
           .col-sm-12.mx-auto.text-center
             h2.section-heading.text-white 문의 보기           
             hr.light.my-4            
-            form#boardPostForm.form.mx-auto(method='POST', action="http://localhost:3000/question" style="width:600px")
+            form#boardPostForm.form.mx-auto(method='POST', action="http://54.180.32.249:3000/question" style="width:600px")
                 .form-group
                     label.text-white(for='title') 문의 제목:
                     input#title.form-control(type='text', value= contents.title, name='title' readonly)
@@ -51,7 +51,7 @@ head
                     label.text-white(for='content') 문의 내용:
                     textarea#content.form-control(name='content', rows='10' readonly) #{contents.content}
                 .form-group.text-center
-            a.btn.btn-light.btn-xl(href='http://localhost:3000/question') 뒤로 가기
+            a.btn.btn-light.btn-xl(href='http://54.180.32.249:3000/question') 뒤로 가기
 
     // Bootstrap core JavaScript
     script(src='/javascripts/jquery.js')

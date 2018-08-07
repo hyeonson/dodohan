@@ -90,7 +90,7 @@ app.post('/question', function (req, res) {
   var quest = new Quest({title:title, content:content})
   quest.save(function(err){
     if (err) console.log(err);
-    res.redirect('http://localhost:3000/question');
+    res.redirect('http://54.180.32.249:3000/question');
   });
 });
 
