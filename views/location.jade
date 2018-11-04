@@ -64,6 +64,7 @@ head
                 zoom: 10
               });
               var mapZoom = new nhn.api.map.ZoomControl();
+              mapZoom.setPosition({ left: 20, top: 20 });
               map.addControl(mapZoom);
               var marker = new naver.maps.Marker({
                 position: position,
