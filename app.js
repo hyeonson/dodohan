@@ -28,7 +28,7 @@ var questSchema = mongoose.Schema({
 var Quest = mongoose.model('Quest',questSchema);
 
 //기본포트를 app 객체에 속성으로 설정
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 80);
 
 
 //body-parser를 사용해 application/x-www-form-urlencoded 파싱
@@ -90,7 +90,7 @@ app.post('/question', function (req, res) {
   var quest = new Quest({title:title, content:content})
   quest.save(function(err){
     if (err) console.log(err);
-    res.redirect('http://54.180.32.249:3000/question');
+    res.redirect('http://54.180.32.249:80/question');
   });
 });
 
