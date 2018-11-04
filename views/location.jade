@@ -24,23 +24,23 @@ head
     // Navigation
     nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
       .container
-        a.navbar-brand.js-scroll-trigger(href='http://54.180.32.249:3000')
-          img(src='/images/logo.jpg', alt='Logo', style='width:100px;')         
+        a.navbar-brand.js-scroll-trigger(href='http://54.180.32.249:80')
+          img(src='/images/logo2.jpg', alt='Logo', style='width:100px;')         
         button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
           span.navbar-toggler-icon          
         #navbarResponsive.collapse.navbar-collapse
           ul.navbar-nav.ml-auto(style='font-weight:bold')
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:3000') 도도한 불닭발
+              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:80') 도도한 불닭발
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:3000/menu') 도도한 메뉴                  
+              a.nav-link.js-scroll-trigger(href='http://54.180.32.24980/menu') 도도한 메뉴                  
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:3000/location') 매장 안내              
+              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:80/location') 매장 안내              
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:3000/chain') 체인점 문의    
+              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:80/chain') 체인점 문의    
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:3000/question') 문의 사항
-    header.masthead.text-center.text-white.d-flex(style="background-image: url('/images/header8.jpg')")
+              a.nav-link.js-scroll-trigger(href='http://54.180.32.249:80/question') 문의 사항
+    header.masthead.text-center.text-white.d-flex(style="background-image: url('/images/background.jpg')")
       .container.my-auto
         .row
           .col-lg-10.mx-auto
@@ -62,7 +62,11 @@ head
                 center: new naver.maps.LatLng(37.445444, 126.666399),
                 zoom: 10
               };
-              var map = new naver.maps.Map('map', mapOptions);       
+              var map = new naver.maps.Map('map', mapOptions);
+              var marker = {
+                position: new naver.maps.LatLng(37.445444, 126.666399),
+                map: map
+              };  
             hr.light.my-4
             a.btn.btn-light.btn-xl.js-scroll-trigger(href='#chains') 등록지점들
     section#chains

@@ -107,7 +107,6 @@ app.get('/question/:id', function(req, res){
    });
 });
 
-
 //Express 서버 시작
 http.createServer(app).listen(app.get('port'), function () {
   console.log('Express 서버를 시작했습니다. : ' + app.get('port'));
