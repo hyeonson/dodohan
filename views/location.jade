@@ -40,7 +40,7 @@ head
               a.nav-link.js-scroll-trigger(href='http://dodohan.ga/chain') 체인점 문의    
             li.nav-item
               a.nav-link.js-scroll-trigger(href='http://dodohan.ga/question') 문의 사항
-    header.masthead.text-center.text-white.d-flex(style="background-image: url('/images/background.jpg')")
+    header.masthead.text-center.text-white.d-flex(style="background-image: url('/images/background2.jpg')")
       .container.my-auto
         .row
           .col-lg-10.mx-auto
@@ -62,11 +62,11 @@ head
                 center: new naver.maps.LatLng(37.445444, 126.666399),
                 zoom: 10
               };
-              var marker = {
+              var marker = new naver.maps.Marker({
                 position: new naver.maps.LatLng(37.445444, 126.666399),
                 map: map
-              };
-              var map = new naver.maps.Map('map', mapOptions);  
+              });
+              var map = new naver.maps.Map('map', mapOptions);
             hr.light.my-4
             a.btn.btn-light.btn-xl.js-scroll-trigger(href='#chains') 등록지점들
     section#chains
