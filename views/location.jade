@@ -63,6 +63,8 @@ head
                 center: position,
                 zoom: 10
               });
+              var mapZoom = new nhn.api.map.ZoomControl();
+              map.addControl(mapZoom);
               var marker = new naver.maps.Marker({
                 position: position,
                 map: map
