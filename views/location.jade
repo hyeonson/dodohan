@@ -61,15 +61,17 @@ head
               var position = new naver.maps.LatLng(37.445444, 126.666399);
               var map = new naver.maps.Map('map', {
                 center: position,
-                zoom: 10
+                zoom: 10,
+                enableWheelZoom:true
               });
-              var mapZoom = new nhn.api.map.ZoomControl();
-              mapZoom.setPosition({ left: 20, top: 20 });
-              map.addControl(mapZoom);
+              
               var marker = new naver.maps.Marker({
                 position: position,
                 map: map
               });
+              var mapZoom = new nhn.api.map.ZoomControl();
+              mapZoom.setPosition({ right: 0, bottom: 0 });
+              map.addControl(mapZoom);
             hr.light.my-4
             a.btn.btn-light.btn-xl.js-scroll-trigger(href='#chains') 등록지점들
     section#chains
