@@ -107,14 +107,15 @@ head
                     th 이름
                     th 날짜
                 tbody
-                  -var i = 0
-                  each item in contents
-                    -i++
-                    tr
-                      td= i
-                      td
-                        a(href='http://dodohan.ga/question/' + item._id )= item.name
-                      td= item.date
+                  if session == 1
+                    -var i = 0
+                    each item in contents
+                      -i++
+                      tr
+                        td= i
+                        td
+                          a(href='http://dodohan.ga/question/' + item._id )= item.name
+                        td= item.date
 
     // Bootstrap core JavaScript
     script(src='/javascripts/jquery.js')
