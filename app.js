@@ -30,6 +30,8 @@ var questSchema = mongoose.Schema({
 
 var Quest = mongoose.model('Quest',questSchema);
 
+var session = 0;
+
 //기본포트를 app 객체에 속성으로 설정
 app.set('port', process.env.PORT || 80);
 
@@ -87,6 +89,17 @@ app.get('/question', function (req, res) {
      // board.ejs의 title변수엔 “Board”를, contents변수엔 db 검색 결과 json 데이터를 저장해줌.
  });
 });
+app.post('/login', function (req, res) {
+  var id = req.body.id;
+  var pw = req.body.pw;
+  if (id == "dodogan" && pw == "8866678")
+    session = 1;
+  res.redirect('http://dodohan.ga/question');
+});
+app.post('/logout', function (req, res) {
+  session = 0;
+  res.redirect('http://dodohan.ga/question');
+});
 app.post('/question', function (req, res) {
   var name = req.body.name;
   var age = req.body.age;
@@ -96,7 +109,7 @@ app.post('/question', function (req, res) {
   var quest = new Quest({name: name, age: age, phone: phone, email: email, location: location})
   quest.save(function(err){
     if (err) console.log(err);
-    res.redirect('http://54.180.32.249:80/question');
+    res.redirect('http://dodohan.ga/question');
   });
 });
 
@@ -108,7 +121,7 @@ app.get('/question/:id', function(req, res){
        //rawContent.count += 1; // 조회수를 늘려줍니다.
        //rawContent.save(function(err){ // 변화된 조횟수 저장
            //if(err) throw err;
-    res.render('questionView.jade',{title: "BoardDetail", contents:rawContent}); // db에서 가져온 내용을 뷰로 렌더링
+    res.render('questionView.jade',{title: "BoardDetail", contents: rawContent, session: session}); // db에서 가져온 내용을 뷰로 렌더링
        //});
    });
 });

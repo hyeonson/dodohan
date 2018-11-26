@@ -56,19 +56,41 @@ head
                     input#title.form-control(type='text', placeholder='성함을 입력해 주세요', name='name')
                 .form-group
                     label.text-white(for='age') 나이:
-                    textarea#content.form-control(placeholder='나이를 입력해 주세요.', name='age')
+                    textarea#content.form-control(type='text', placeholder='나이를 입력해 주세요.', name='age')
                 .form-group
                     label.text-white(for='phone') 연락처:
-                    textarea#content.form-control(placeholder='연락처를 입력해 주세요.', name='phone')
+                    textarea#content.form-control(type='text', placeholder='연락처를 입력해 주세요.', name='phone')
                 .form-group
                     label.text-white(for='email') 이메일:
-                    textarea#content.form-control(placeholder='이메일을 입력해 주세요.', name='email')
+                    textarea#content.form-control(type='text', placeholder='이메일을 입력해 주세요.', name='email')
                 .form-group
                     label.text-white(for='location') 가맹점 희망 지역 및 내용:
                     textarea#content.form-control(placeholder='내용을 입력해 주세요.', name='location', rows='10')
                 
                 .form-group.text-center
                 button.btn.btn-light.my-3.mx-2(type='submit') 문의 등록
+ 
+            a.btn.btn-light.btn-xl.js-scroll-trigger(href='#login') 문의 목록
+    section#login.bg-primary
+      .container
+        .row
+          .col-lg-8.mx-auto.text-center
+            -if session == 0
+              h2.section-heading.text-white 사장님 로그인           
+              hr.light.my-4            
+              form#boardPostForm.form.mx-auto(method='POST', action="http://dodohan.ga/login")
+                  .form-group
+                      label.text-white(for='id') 아이디:
+                      input#title.form-control(type='text', placeholder='아이디를 입력해 주세요', name='id')
+                  .form-group
+                      label.text-white(for='pw') 비밀번호:
+                      input#title.form-control(type='password', name='pw')
+                  
+                  .form-group.text-center
+                  button.btn.btn-light.my-3.mx-2(type='submit') 로그인
+            -else
+              form#boardPostForm.form.mx-auto(method='POST', action="http://dodohan.ga/logout")
+                button.btn.btn-light.my-3.mx-2(type='submit') 로그아웃
  
             a.btn.btn-light.btn-xl.js-scroll-trigger(href='#questlist') 문의 목록
     section#questlist
