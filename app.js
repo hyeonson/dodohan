@@ -20,8 +20,11 @@ db.once('open', function(){
 });
 
 var questSchema = mongoose.Schema({
-  title: String,
-  content: String,
+  name: String,
+  age: String,
+  phone: String,
+  email: String,
+  location: String,
   date:{type:Date, default: Date.now}
 });
 
@@ -71,11 +74,11 @@ app.get('/menu', function (req, res) {
 app.get('/location', function (req, res) {
   res.render('location.jade');
 });
-
+/*
 app.get('/chain', function (req, res) {
   res.render('chain.jade');
 });
-
+*/
 app.get('/question', function (req, res) {
   Quest.find({}).sort({date:-1}).exec(function(err, rawContents){
     // db에서 날짜 순으로 데이터들을 가져옴
@@ -85,9 +88,12 @@ app.get('/question', function (req, res) {
  });
 });
 app.post('/question', function (req, res) {
-  var title = req.body.title;
-  var content = req.body.content;
-  var quest = new Quest({title:title, content:content})
+  var name = req.body.name;
+  var age = req.body.age;
+  var phone = req.body.phone;
+  var email = req.body.email;
+  var location = req.body.location;
+  var quest = new Quest({name: name, age: age, phone: phone, email: email, location: location})
   quest.save(function(err){
     if (err) console.log(err);
     res.redirect('http://54.180.32.249:80/question');

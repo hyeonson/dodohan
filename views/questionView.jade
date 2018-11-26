@@ -32,11 +32,9 @@ head
             li.nav-item
               a.nav-link.js-scroll-trigger(href='http://dodohan.ga/menu') 도도한 메뉴                  
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://dodohan.ga/location') 매장 안내              
+              a.nav-link.js-scroll-trigger(href='http://dodohan.ga/location') 매장 안내  
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://dodohan.ga/chain') 체인점 문의    
-            li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://dodohan.ga/question') 문의 사항
+              a.nav-link.js-scroll-trigger(href='http://dodohan.ga/question') 가맹점 문의
     section#questreg.bg-primary
       .container
         .row
@@ -45,11 +43,20 @@ head
             hr.light.my-4            
             form#boardPostForm.form.mx-auto(method='POST', action="http://dodohan.ga/question" style="width:600px")
                 .form-group
-                    label.text-white(for='title') 문의 제목:
-                    input#title.form-control(type='text', value= contents.title, name='title' readonly)
+                    label.text-white(for='name') 이름:
+                    input#title.form-control(type='text', value= contents.name, name='name' readonly)
                 .form-group
-                    label.text-white(for='content') 문의 내용:
-                    textarea#content.form-control(name='content', rows='10' readonly) #{contents.content}
+                    label.text-white(for='age') 나이:
+                    input#title.form-control(type='text', value= contents.age, name='age' readonly)
+                .form-group
+                    label.text-white(for='phone') 연락처:
+                    input#title.form-control(type='text', value= contents.phone, name='phone' readonly)
+                .form-group
+                    label.text-white(for='email') 이메일:
+                    input#title.form-control(type='text', value= contents.email, name='email' readonly)
+                .form-group
+                    label.text-white(for='location') 가맹점 희망 지역 및 내용:
+                    textarea#content.form-control(name='location', rows='10' readonly) #{contents.location}
                 .form-group.text-center
             a.btn.btn-light.btn-xl(href='http://dodohan.ga/question') 뒤로 가기
 
