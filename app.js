@@ -85,7 +85,7 @@ app.get('/question', function (req, res) {
   Quest.find({}).sort({date:-1}).exec(function(err, rawContents){
     // db에서 날짜 순으로 데이터들을 가져옴
      if(err) throw err;
-     res.render('question.jade', {title: "Board", contents: rawContents}); 
+     res.render('question.jade', {title: "Board", contents: rawContents, session: session}); 
      // board.ejs의 title변수엔 “Board”를, contents변수엔 db 검색 결과 json 데이터를 저장해줌.
  });
 });
