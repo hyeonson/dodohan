@@ -5,6 +5,7 @@ var static = require('serve-static');
 var bodyParser = require('body-parser');
 var path = require('path');
 var session = require('express-session');
+var robots = require('robots.txt');
 //Express 객체 생성
 var app = express();
 
@@ -82,6 +83,9 @@ app.use(function(req, res, next){
   res.end();
 });
 */
+
+app.use(robots(__dirname + '/robots.txt'))
+
 app.get('/', function (req, res) {
   res.render('index.jade');
 });
@@ -115,7 +119,7 @@ app.get('/question', function (req, res) {
 app.post('/login', function (req, res) {
   var id = req.body.id;
   var pw = req.body.pw;
-  if (id == "" && pw == ""){
+  if (id == "dodohan" && pw == "8866678"){
     /*
     var session1 = new Session({authId: id, pw: pw})
     session1.save(function(err){
@@ -150,6 +154,8 @@ app.post('/question', function (req, res) {
     res.redirect('http://dodohan.ga/question');
   });
 });
+
+
 
 app.get('/question/:id', function(req, res){
   var session = 0;
