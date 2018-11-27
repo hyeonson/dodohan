@@ -40,24 +40,25 @@ head
         .row
           .col-sm-12.mx-auto.text-center
             h2.section-heading.text-white 문의 보기           
-            hr.light.my-4            
-            form#boardPostForm.form.mx-auto(method='POST', action="http://dodohan.ga/question")
-                .form-group
-                    label.text-white(for='name') 이름:
-                    input#title.form-control(type='text', value= contents.name, name='name' readonly)
-                .form-group
-                    label.text-white(for='age') 나이:
-                    input#title.form-control(type='text', value= contents.age, name='age' readonly)
-                .form-group
-                    label.text-white(for='phone') 연락처:
-                    input#title.form-control(type='text', value= contents.phone, name='phone' readonly)
-                .form-group
-                    label.text-white(for='email') 이메일:
-                    input#title.form-control(type='text', value= contents.email, name='email' readonly)
-                .form-group
-                    label.text-white(for='location') 가맹점 희망 지역 및 내용:
-                    textarea#content.form-control(name='location', rows='10' readonly) #{contents.location}
-                .form-group.text-center
+            hr.light.my-4
+            if session == 1
+              form#boardPostForm.form.mx-auto(method='POST', action="http://dodohan.ga/question")
+                  .form-group
+                      label.text-white(for='name') 이름:
+                      input#title.form-control(type='text', value= contents.name, name='name' readonly)
+                  .form-group
+                      label.text-white(for='age') 나이:
+                      input#title.form-control(type='text', value= contents.age, name='age' readonly)
+                  .form-group
+                      label.text-white(for='phone') 연락처:
+                      input#title.form-control(type='text', value= contents.phone, name='phone' readonly)
+                  .form-group
+                      label.text-white(for='email') 이메일:
+                      input#title.form-control(type='text', value= contents.email, name='email' readonly)
+                  .form-group
+                      label.text-white(for='location') 가맹점 희망 지역 및 내용:
+                      textarea#content.form-control(name='location', rows='10' readonly) #{contents.location}
+                  .form-group.text-center
             a.btn.btn-light.btn-xl(href='http://dodohan.ga/question') 뒤로 가기
 
     // Bootstrap core JavaScript

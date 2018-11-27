@@ -4,6 +4,7 @@ var http = require('http');
 var static = require('serve-static');
 var bodyParser = require('body-parser');
 var path = require('path');
+var session = require('express-session');
 //Express 객체 생성
 var app = express();
 
@@ -30,6 +31,15 @@ var questSchema = mongoose.Schema({
 
 var Quest = mongoose.model('Quest',questSchema);
 
+var sessionSchema = mongoose.Schema({
+  authId: String,
+  pw: String
+});
+
+var Session = mongoose.model('Session',sessionSchema);
+
+
+
 //기본포트를 app 객체에 속성으로 설정
 app.set('port', process.env.PORT || 80);
 
@@ -44,6 +54,14 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'jade')
 app.set('views', './views')
+
+app.use(session({
+  secret: '12sdfwerwersdfserwerwef',
+  resave: false,
+  saveUninitialized: true,
+  store: require('mongoose-session')(mongoose)
+}));
+
 //app.set('views', __dirname + '/views');
 //app.engine('html', require('ejs').renderFile);
 //app.set('view engine', 'html');
@@ -80,25 +98,48 @@ app.get('/chain', function (req, res) {
 });
 */
 app.get('/question', function (req, res) {
-  Quest.find({}).sort({date:-1}).exec(function(err, rawContents){
-    // db에서 날짜 순으로 데이터들을 가져옴
-     if(err) throw err;
-     res.render('question.jade', {title: "Board", contents: rawContents}); 
-     // board.ejs의 title변수엔 “Board”를, contents변수엔 db 검색 결과 json 데이터를 저장해줌.
- });
+  var session = 0;
+  if(req.session.authId)
+  {
+    session = 1;
+    Quest.find({}).sort({date:-1}).exec(function(err, rawContents){
+      // db에서 날짜 순으로 데이터들을 가져옴
+       if(err) throw err;
+       //res.render('question.jade', {title: "Board", contents: rawContents}); 
+       res.redirect('http://dodohan.ga/question', {title: "Board", contents: rawContents, session: session});
+       // board.ejs의 title변수엔 “Board”를, contents변수엔 db 검색 결과 json 데이터를 저장해줌.
+      });
+  }
+  else
+  {
+    res.redirect('http://dodohan.ga/question', {title: "Board", contents: rawContents, session: session}); 
+  }
+  
 });
 app.post('/login', function (req, res) {
-  var session = 0;
   var id = req.body.id;
   var pw = req.body.pw;
-  if (id == "dodohan" && pw == "8866678")
-    session = 1;
-  res.redirect('http://dodohan.ga/question', {session: session});
+  if (id == "dodohan" && pw == "8866678"){
+    /*
+    var session1 = new Session({authId: id, pw: pw})
+    session1.save(function(err){
+      if (err) console.log(err);
+      res.redirect('http://dodohan.ga/question', {session: session});
+    });
+    */
+    req.session.authId = id;
+    req.session.save(function(){
+      res.redirect('http://dodohan.ga/question');
+    });
+  }
+  else
+    //res.redirect('http://dodohan.ga/question', {session: session});
+    res.redirect('http://dodohan.ga/question');
 });
 
 app.post('/logout', function (req, res) {
-  var session = 0;
-  res.redirect('http://dodohan.ga/question', {session: session});
+  delete req.session.authId;
+  res.redirect('http://dodohan.ga/question');
 });
 
 app.post('/question', function (req, res) {
@@ -115,16 +156,23 @@ app.post('/question', function (req, res) {
 });
 
 app.get('/question/:id', function(req, res){
-  // 글 보는 부분. 글 내용을 출력하고 조회수를 늘려줘야함
-  var contentId = req.param('id');
-  Quest.findOne({_id:contentId}, function(err, rawContent){
-    if(err) throw err;
-       //rawContent.count += 1; // 조회수를 늘려줍니다.
-       //rawContent.save(function(err){ // 변화된 조횟수 저장
-           //if(err) throw err;
-    res.render('questionView.jade',{title: "BoardDetail", contents: rawContent}); // db에서 가져온 내용을 뷰로 렌더링
-       //});
-   });
+  var session = 0;
+  if(req.session.authId)
+  {
+    session = 1;
+    // 글 보는 부분. 글 내용을 출력하고 조회수를 늘려줘야함
+    var contentId = req.param('id');
+    Quest.findOne({_id:contentId}, function(err, rawContent){
+      if(err) throw err;
+        //rawContent.count += 1; // 조회수를 늘려줍니다.
+        //rawContent.save(function(err){ // 변화된 조횟수 저장
+            //if(err) throw err;
+      res.render('questionView.jade',{title: "BoardDetail", contents: rawContent, session: session}); // db에서 가져온 내용을 뷰로 렌더링
+        //});
+    });
+  }
+  else
+    res.render('questionView.jade',{title: "BoardDetail", contents: rawContent, session: session});
 });
 
 //Express 서버 시작
