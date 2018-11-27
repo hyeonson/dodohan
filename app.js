@@ -31,13 +31,14 @@ var questSchema = mongoose.Schema({
 
 var Quest = mongoose.model('Quest',questSchema);
 
+/*
 var sessionSchema = mongoose.Schema({
   authId: String,
   pw: String
 });
 
 var Session = mongoose.model('Session',sessionSchema);
-
+*/
 
 
 //기본포트를 app 객체에 속성으로 설정
