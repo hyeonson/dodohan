@@ -5,7 +5,6 @@ var static = require('serve-static');
 var bodyParser = require('body-parser');
 var path = require('path');
 var session = require('express-session');
-var robots = require('robots.txt');
 //Express 객체 생성
 var app = express();
 
@@ -54,6 +53,7 @@ app.use(bodyParser.json());
 
 //app.use(static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.set('view engine', 'jade')
 app.set('views', './views')
 
@@ -84,10 +84,14 @@ app.use(function(req, res, next){
 });
 */
 
-app.use(robots(__dirname + '/robots.txt'))
 
 app.get('/', function (req, res) {
   res.render('index.jade');
+});
+
+app.get('/robots.txt', function (req, res) {
+  res.type('text/plain');
+  res.send("User-agent: *\nAllow: /");
 });
 
 app.get('/menu', function (req, res) {
