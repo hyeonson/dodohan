@@ -168,7 +168,7 @@ app.get('/question/:id', function(req, res){
     });
   }
   else
-    res.render('questionView.jade',{title: "BoardDetail", contents: rawContent, session: session});
+    res.render('questionView.jade',{title: "BoardDetail", session: session});
 });
 
 //Express 서버 시작
