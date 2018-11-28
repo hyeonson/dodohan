@@ -123,7 +123,7 @@ app.get('/question', function (req, res) {
 app.post('/login', function (req, res) {
   var id = req.body.id;
   var pw = req.body.pw;
-  if (id == "" && pw == ""){
+  if (id == "dodohan" && pw == "8866678"){
     /*
     var session1 = new Session({authId: id, pw: pw})
     session1.save(function(err){
