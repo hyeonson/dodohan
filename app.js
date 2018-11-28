@@ -107,7 +107,7 @@ app.get('/question', function (req, res) {
 app.post('/login', function (req, res) {
   var id = req.body.id;
   var pw = req.body.pw;
-  if (id == "dodohan" && pw == "8866678"){
+  if (id == "" && pw == ""){
     req.session.authId = id;
     req.session.save(function(){
       res.redirect('http://dodohan.ga/question');
