@@ -68,22 +68,6 @@ app.use(session({
 //app.engine('html', require('ejs').renderFile);
 //app.set('view engine', 'html');
 
-//미들웨어에서 파라미터 확인
-/*
-app.use(function(req, res, next){
-  console.log('첫번째 미들웨어에서 요청을 처리함.');
-
-  var paramId = req.body.id || req.query.id;
-  var paramPassword = req.body.password || req.query.password;
-
-  res.writeHead('200',{'Content-type':'text/html;charset=utf8'});
-  res.write('<h1>express 서버에서 응답한 결과입니다.</h1>');
-  res.write('<div><p>param id: '+paramId+'</p></div>');
-  res.write('<div><p>param password: '+paramPassword+'</p></div>');
-  res.end();
-});
-*/
-
 
 app.get('/', function (req, res) {
   res.render('index.jade');
@@ -123,14 +107,7 @@ app.get('/question', function (req, res) {
 app.post('/login', function (req, res) {
   var id = req.body.id;
   var pw = req.body.pw;
-  if (id == "" && pw == ""){
-    /*
-    var session1 = new Session({authId: id, pw: pw})
-    session1.save(function(err){
-      if (err) console.log(err);
-      res.redirect('http://dodohan.ga/question', {session: session});
-    });
-    */
+  if (id == "dodohan" && pw == "8866678"){
     req.session.authId = id;
     req.session.save(function(){
       res.redirect('http://dodohan.ga/question');
