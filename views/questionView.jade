@@ -1,72 +1,80 @@
-﻿doctype html(lang='en')
+﻿doctype html(lang='ko')
 head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    title 도도한 불닭발
-    // Bootstrap core CSS
-    link(href='/stylesheets/bootstrap.css', rel='stylesheet')
-    // Custom fonts for this template
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
-    link(href='/stylesheets/font-awesome.css', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
-    link(href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic', rel='stylesheet', type='text/css')
-    // Plugin CSS
-    link(href='/stylesheets/magnific-popup.css', rel='stylesheet')
-    // Custom styles for this template
-    link(href='/stylesheets/creative.css', rel='stylesheet')
-  body#page-top
-    // Navigation
-    // Navigation
-    nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
-      .container
-        a.navbar-brand.js-scroll-trigger(href='http://dodohan.ga')
-          img(src='/images/logo2.jpg', alt='Logo', style='width:100px;')         
-        button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
-          span.navbar-toggler-icon          
-        #navbarResponsive.collapse.navbar-collapse
-          ul.navbar-nav.ml-auto(style='font-weight:bold')
-            li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://dodohan.ga') 도도한 불닭발
-            li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://dodohan.ga/menu') 도도한 메뉴                  
-            li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://dodohan.ga/location') 매장 안내  
-            li.nav-item
-              a.nav-link.js-scroll-trigger(href='http://dodohan.ga/question') 가맹점 문의
-    section#questreg.bg-primary
-      .container
-        .row
-          .col-sm-12.mx-auto.text-center
-            h2.section-heading.text-white 문의 보기           
-            hr.light.my-4
-            if session == 1
-              form#boardPostForm.form.mx-auto(method='POST', action="http://dodohan.ga/question")
-                  .form-group
-                      label.text-white(for='name') 이름:
-                      input#title.form-control(type='text', value= contents.name, name='name' readonly)
-                  .form-group
-                      label.text-white(for='age') 나이:
-                      input#title.form-control(type='text', value= contents.age, name='age' readonly)
-                  .form-group
-                      label.text-white(for='phone') 연락처:
-                      input#title.form-control(type='text', value= contents.phone, name='phone' readonly)
-                  .form-group
-                      label.text-white(for='email') 이메일:
-                      input#title.form-control(type='text', value= contents.email, name='email' readonly)
-                  .form-group
-                      label.text-white(for='location') 가맹점 희망 지역 및 내용:
-                      textarea#content.form-control(name='location', rows='10' readonly) #{contents.location}
-                  .form-group.text-center
-            a.btn.btn-light.btn-xl(href='http://dodohan.ga/question') 뒤로 가기
-
-    // Bootstrap core JavaScript
-    script(src='/javascripts/jquery.js')
-    script(src='/javascripts/bootstrap.bundle.js')
-    // Plugin JavaScript
-    script(src='/javascripts/jquery.easing.js')
-    script(src='/javascripts/scrollreveal.js')
-    script(src='/javascripts/jquery.magnific-popup.js')
-    // Custom scripts for this template
-    script(src='/javascripts/creative.js')
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name="naver-site-verification" content='b91070919d2b22e5e39ca7e8eca6515c33bfbc15')
+  meta(name='google-site-verification' content='nSDnGm0o7h1AnOjxov5BviqKl4hRK8wiJbqefZaBBcU')
+  meta(name='og:title' content='도도한불닭발 문의보기')
+  meta(name='description' content='도도한불닭발, 불닭발, 닭발맛집, 인천 남구 학익동, 용일사거리')
+  meta(property='og:description' content='도도한불닭발, 불닭발, 닭발맛집, 인천 남구 학익동, 용일사거리')
+  meta(property='og:site_name' content='도도한불닭발')
+  meta(property='og:type' content='website')
+  meta(property='og:url' contnet='http://dodohan.ga')
+  meta(name='keywords' content='도도한불닭발, 불닭발, 닭발맛집, 인천 남구 학익동, 용일사거리, 인하대, 학익우체국, 국물닭발, 오돌뼈, 막창, 곱창, 불닭, 주먹밥, 무뼈')
+  meta(nema='og:image' content='http://dodohan.ga/images/background2.jpg')
+  meta(name='robots' content='index, follow')
+  title 도도한불닭발 문의보기
+  // Bootstrap core CSS
+  link(href='/stylesheets/bootstrap.css', rel='stylesheet')
+  // Custom fonts for this template
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+  link(href='/stylesheets/font-awesome.css', rel='stylesheet', type='text/css')
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+  link(href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic', rel='stylesheet', type='text/css')
+  // Plugin CSS
+  link(href='/stylesheets/magnific-popup.css', rel='stylesheet')
+  // Custom styles for this template
+  link(href='/stylesheets/creative.css', rel='stylesheet')
+body#page-top
+  // Navigation
+  // Navigation
+  nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
+    .container
+      a.navbar-brand.js-scroll-trigger(href='http://dodohan.ga')
+        img(src='/images/logo2.jpg', alt='Logo', style='width:100px;')         
+      button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon          
+      #navbarResponsive.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto(style='font-weight:bold')
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='http://dodohan.ga') 도도한 불닭발
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='http://dodohan.ga/menu') 도도한 메뉴                  
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='http://dodohan.ga/location') 매장 안내  
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='http://dodohan.ga/question') 가맹점 문의
+  section#questreg.bg-primary
+    .container
+      .row
+        .col-sm-12.mx-auto.text-center
+          h2.section-heading.text-white 문의 보기           
+          hr.light.my-4
+          if session == 1
+            form#boardPostForm.form.mx-auto(method='POST', action="http://dodohan.ga/question")
+              .form-group
+                label.text-white(for='name') 이름:
+                input#title.form-control(type='text', value= contents.name, name='name' readonly)
+              .form-group
+                label.text-white(for='age') 나이:
+                input#title.form-control(type='text', value= contents.age, name='age' readonly)
+              .form-group
+                label.text-white(for='phone') 연락처:
+                input#title.form-control(type='text', value= contents.phone, name='phone' readonly)
+              .form-group
+                label.text-white(for='email') 이메일:
+                input#title.form-control(type='text', value= contents.email, name='email' readonly)
+              .form-group
+                label.text-white(for='location') 가맹점 희망 지역 및 내용:
+                textarea#content.form-control(name='location', rows='10' readonly) #{contents.location}
+              .form-group.text-center
+          a.btn.btn-light.btn-xl(href='http://dodohan.ga/question') 뒤로 가기
+   // Bootstrap core JavaScript
+  script(src='/javascripts/jquery.js')
+  script(src='/javascripts/bootstrap.bundle.js')
+  // Plugin JavaScript
+  script(src='/javascripts/jquery.easing.js')
+  script(src='/javascripts/scrollreveal.js')
+  script(src='/javascripts/jquery.magnific-popup.js')
+  // Custom scripts for this template
+  script(src='/javascripts/creative.js')
